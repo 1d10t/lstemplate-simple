@@ -12,7 +12,7 @@
     			<a href="{$oTopic->getUrl()}" class="topic-title">{$oTopic->getTitle()|escape:'html'}</a>
             </div>
         </li>
-	{/foreach}				
+	{/foreach}
 </ul>
 
 <div class="bottom">

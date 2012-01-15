@@ -18,12 +18,12 @@
 /**
  * Адрес конвертера фото-сетов
  */
-Config::Set('router.page.simpletpl', 'PluginSimpletpl_ActionSimple');
+$config['$root$']['router']['page']['simpletpl'] = 'PluginSimpletpl_ActionSimple';
 
 /**
  * Настройки
  */
-Config::Set('module.topic.per_page',9);	// Число топиков на одну страницу
+$config['$root$']['module']['topi']['per_page']=9;	// Число топиков на одну страницу
 $config['count_top_users']   = 10;  // Число пользователей в верхнем ТОП
 $config['count_top_topics']   = 6;  // Число топиков в верхнем ТОП-слайдере, лучше указывать четное число
 $config['topic_time_top']   = 60*60*24*7*10;  // Число секунд за которые считать ТОП топиков, по дефолту стоит 7 дней
@@ -52,17 +52,19 @@ $config['size_images']=array(
  * Список размеров превью топика
  * По умолчанию наследуется от $config['size_images'], но можно добавить и свои размеры, например 100х100
  */
-$config['size_images_review']=array_merge(array(
-								/*
-								  array(
-									  'w' => 100,
-									  'h' => 100,
-									  'crop' => true,
-								  ),
-								*/
-								   ),$config['size_images']);
+$config['size_images_review']=array_merge(
+	array(
+		/*array(
+			'w' => 100,
+			'h' => 100,
+			'crop' => true,
+		),*/
+	),
+	$config['size_images']
+);
 
-Config::Set('module.topic.photoset.size',array_merge(Config::Get('module.topic.photoset.size'),$config['size_images']));
+//Config::Set('module.topic.photoset.size',array_merge(Config::Get('module.topic.photoset.size'),$config['size_images']));
+$config['$root$']['module']['topic']['photoset']['size'] = $config['size_images'];
 
 return $config;
 ?>
